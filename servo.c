@@ -2,13 +2,12 @@
 #include <stdlib.h>
 #include <wiringPi.h>
 #include "servo.h"
-
 #define P_SERVO 1 //only wiringPi pin 1 (BCM_GPIO 18) supports PWM
 
 int position = 0;		   //当前位置
 int max_angle = 180;	   //最大角度
 int servo_step = 1;		   //每一步的角度
-int servo_step_delay = 20; //每一步的延时
+int servo_step_delay = 10; //每一步的延时
 
 void servoSetup()
 {
@@ -50,7 +49,7 @@ void servoShutdown()
 	pwmWrite(P_SERVO, 0);
 }
 
-int main(int argc, char *argv[])
+int test(int argc, char *argv[])
 {
 	printf("starting\r\n");
 	servoSetup();
