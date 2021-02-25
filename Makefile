@@ -1,15 +1,12 @@
 objects = servo.o remoteCtl.o
 
-remote:$(objects)
-	gcc $(objects) -o remote.o -lwiringPi
+main:$(objects)
+	gcc -o run $(objects) -lwiringPi
 
-remoteCtl.o:remoteCtl.c servo.h
-	gcc -c remoteCtl.c
-
-servo.o:servo.c servo.h
-	gcc -c servo.c 
+remoteCtl.o:servo.h
+servo.o:servo.h
 
 $(objects):
 .PHONY : clean
 clean:
-	rm  $(objects) remote.o
+	rm  $(objects) run
