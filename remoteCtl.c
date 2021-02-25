@@ -9,7 +9,6 @@
 #include <errno.h>
 #include <linux/input.h>
 #include <linux/joystick.h>
-#include <wiringPi.h>
 #include "servo.h"
 
 #define XBOX_TYPE_BUTTON 0x01
@@ -272,11 +271,10 @@ int main(void)
         
         
         if(p != p_last) {
-            servoRun(p);
+            // servoRun(p);
             printf("map.ry:%d servo_p:%d p_last:%d\r\n", map.ry, p, p_last);
             printf("servoRun(%d)", p);
 
-            delay(10);
             p_last = p;
             fflush(stdout);
         }
